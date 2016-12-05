@@ -17,6 +17,8 @@ class Translation(bpy.types.Operator):
     bl_label = "Interface translation"
 
     def execute(self, context):
+        if not bpy.context.user_preferences.system.use_international_fonts:
+            bpy.context.user_preferences.system.use_international_fonts = True
         use_translate = bpy.context.user_preferences.system.use_translate_interface
         bpy.context.user_preferences.system.use_translate_interface = not use_translate
         return {'FINISHED'}
