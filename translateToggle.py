@@ -12,7 +12,7 @@ bl_info = {
 import bpy
 
 class Translation(bpy.types.Operator):
-    """Tooltip"""
+    """Toggle UI translation"""
     bl_idname = "object.translation"
     bl_label = "Interface translation"
 
