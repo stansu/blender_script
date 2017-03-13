@@ -17,6 +17,11 @@ def speakText(self, context):
     subprocess.run([path, '-s120', bpy.context.scene.speak_string])
     return{'FINISHED'}
 
+'''
+eval(a.replace('(', '').replace(')','')+'._func')
+bpy.context.window_manager.clipboard
+'''
+
 def register():
     bpy.types.Scene.speak_string = bpy.props.StringProperty \
       (
