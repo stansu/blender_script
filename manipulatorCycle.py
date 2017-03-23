@@ -5,7 +5,7 @@ for area in bpy.context.screen.areas:
         for space in area.spaces:
             if space.type == 'VIEW_3D':
                 space.show_manipulator = True
-                if space.transform_manipulators == {'TRANSLATE'}:
+                if space.transform_manipulators != {'TRANSLATE'}:
                     space.transform_manipulators = {'ROTATE'}
                 elif space.transform_manipulators == {'ROTATE'}:
                     space.transform_manipulators = {'SCALE'}
