@@ -12,8 +12,9 @@ bl_info = {
 import bpy
 
 class SculptMethod(bpy.types.Operator):
-    bl_idname = "sculpt.dialog_operator"
-    bl_label = "sculpt Dialog Operator"
+    """sculpt refine method"""
+    bl_idname = "object.dialog_operator"
+    bl_label = "sculpt refine method"
     bl_options = {'REGISTER', 'UNDO'}
 
     my_EnumProperty = bpy.props.EnumProperty(
@@ -36,7 +37,7 @@ class SculptMethod(bpy.types.Operator):
 
 def addon_button(self, context):
      self.layout.operator(
-          "sculpt.dialog_operator",
+          "object.dialog_operator",
           text="sculpt refine method",)
 
 def register():
