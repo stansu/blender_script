@@ -13,7 +13,7 @@ import bpy
 
 class SculptMethod(bpy.types.Operator):
     """sculpt refine method"""
-    bl_idname = "object.dialog_operator"
+    bl_idname = "screen.dialog_operator"
     bl_label = "sculpt refine method"
     bl_options = {'REGISTER', 'UNDO'}
 
@@ -37,7 +37,7 @@ class SculptMethod(bpy.types.Operator):
 
 def addon_button(self, context):
      self.layout.operator(
-          "object.dialog_operator",
+          "screen.dialog_operator",
           text="sculpt refine method",)
 
 def register():
