@@ -13,7 +13,7 @@ import bpy
 
 class StanManipulator(bpy.types.Operator):
     """Cycle manipulator"""
-    bl_idname = "object.stan_manipulator"
+    bl_idname = "scene.stan_manipulator"
     bl_label = "Cycle manipulator"
     
     def execute(self, contect):
@@ -34,7 +34,7 @@ class StanManipulator(bpy.types.Operator):
 
 def addon_button(self, context):
      self.layout.operator(
-          "object.stan_manipulator",
+          "scene.stan_manipulator",
           text="Cycle manipulator",)
 
 

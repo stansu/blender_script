@@ -13,7 +13,7 @@ import bpy
 
 class Translation(bpy.types.Operator):
     """Toggle UI translation"""
-    bl_idname = "object.translation"
+    bl_idname = "screen.translation"
     bl_label = "Interface translation"
 
     def execute(self, context):
@@ -24,7 +24,7 @@ class Translation(bpy.types.Operator):
 
 def addon_button(self, context):
      self.layout.operator(
-          "object.translation",
+          "screen.translation",
           text="Translation",)
 
 
