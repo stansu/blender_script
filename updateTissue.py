@@ -14,4 +14,4 @@ for o in bpy.data.objects:
             bpy.context.scene.objects.active = o
             bpy.ops.object.update_tessellate()
 
-bpy.context.active_object = tempActive
+bpy.context.scene.objects.active = tempActive
