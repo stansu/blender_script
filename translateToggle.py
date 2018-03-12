@@ -18,8 +18,6 @@ class Translation(bpy.types.Operator):
     bl_idname = "screen.translation"
     bl_label = "Interface translation"
 
-    toggleState = True
-    
     def execute(self, context):
         bpy.context.user_preferences.system.use_translate_interface = not bpy.context.user_preferences.system.use_translate_interface
         bpy.context.user_preferences.system.use_translate_tooltips = not bpy.context.user_preferences.system.use_translate_tooltips
