@@ -18,8 +18,12 @@ class Translation(bpy.types.Operator):
 
     def execute(self, context):
         bpy.context.user_preferences.system.use_international_fonts = True
-        use_translate = bpy.context.user_preferences.system.use_translate_interface
-        bpy.context.user_preferences.system.use_translate_interface = not use_translate
+        interface_translate = bpy.context.user_preferences.system.use_translate_interface
+        tooltips_translate = bpy.context.user_preferences.system.use_translate_tooltips
+        new_data_translate = bpy.context.user_preferences.system.use_translate_new_dataname
+        bpy.context.user_preferences.system.use_translate_interface = not interface_translate
+        bpy.context.user_preferences.system.use_translate_tooltips = not tooltips_translate
+        bpy.context.user_preferences.system.use_translate_new_dataname = not new_data_translate
         return {'FINISHED'}
 
 def addon_button(self, context):
