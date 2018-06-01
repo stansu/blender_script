@@ -1,17 +1,18 @@
 import bpy
+import random
 
 # Set these to False if you don't want to key that property.
 KEYFRAME_LOCATION = True
 KEYFRAME_ROTATION = True
 KEYFRAME_SCALE = True
-KEYFRAME_VISIBILITY = False  # Viewport and render visibility.
+KEYFRAME_VISIBILITY = True  # Viewport and render visibility.
 
-def create_objects_for_particles(ps, obj):
+def create_objects_for_particles(ps, objs):
     # Duplicate the given object for every particle and return the duplicates.
     # Use instances instead of full copies.
     obj_list = []
-    mesh = obj.data
     for i, _ in enumerate(ps.particles):
+        mesh = random.choice(objs).data
         dupli = bpy.data.objects.new(
                     name="particle.{:03d}".format(i),
                     object_data=mesh)
@@ -61,14 +62,13 @@ def keyframe_obj(obj):
 def main():
     # Assume only 2 objects are selected.
     # The active object should be the one with the particle system.
+    ps_obj = bpy.context.object
+    objs = [obj for obj in bpy.context.selected_objects if obj != ps_obj]
+    ps = ps_obj.particle_systems[0]  # Assume only 1 particle system is present.
     start_frame = bpy.context.scene.frame_start
     end_frame = bpy.context.scene.frame_end
-    obj = bpy.context.object
-    ps_objs = [o for o in bpy.context.selected_objects if o != obj]
-    for ps_obj in ps_objs:
-        ps = ps_obj.particle_systems[0]  # Assume only 1 particle system is present.
-        obj_list = create_objects_for_particles(ps, obj)
-        match_and_keyframe_objects(ps, obj_list, start_frame, end_frame)
+    obj_list = create_objects_for_particles(ps, objs)
+    match_and_keyframe_objects(ps, obj_list, start_frame, end_frame)
 
 if __name__ == '__main__':
     main()
