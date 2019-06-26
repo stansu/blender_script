@@ -6,6 +6,7 @@ for m in mats:
     m.use_nodes = True
     mTree = m.node_tree
     mNodes = mTree.nodes
+    mNodes.clear()
     if not mNodes.get('Material Output'):
         matOutput = mNodes.new("ShaderNodeOutputMaterial")
         emitMat = mNodes.new("ShaderNodeEmission")
